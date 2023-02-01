@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Dreadnoughtus";
+  src: url(./../../fonts/DreadnoughtusMedium.woff);
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 400;
+  src: url(./../../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 600;
+  src: url(./../../fonts/OpenSans-SemiBold.ttf);
+}
+
+$primary-color: #171717;
+$secondary-color: #222;
+$accent-color: #3935fe;
+$text-color: #fff;
+$transition: cubic-bezier(0, 0.52, 0.43, 0.99);
+
+.none {
+  display: none !important;
+}
+
+%regular-text {
+  font-family: "OpenSans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  // font-size: calc((1vw + 1vh) / 1.6);
+  line-height: 27px;
+  color: $text-color;
+}
+%subtitle-text {
+  font-family: "OpenSans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  // font-size: calc((1vw + 1vh));
+  line-height: 41px;
+  color: $text-color;
+  text-transform: uppercase;
+}
+
+%title-text {
+  font-family: "Dreadnoughtus", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 57px;
+}
+
+body {
+  @extend %regular-text;
+  background-color: $primary-color;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.cursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  background-color: $accent-color;
+  // background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) translate3d(var(--move-x), var(--move-y), 0);
+  background-size: cover;
+  transition: all 2s cubic-bezier(0.05, 0.5, 0, 1);
+  z-index: -1;
+  mix-blend-mode: difference;
+}
+.cursor.visible {
+  width: 80px;
+  height: 80px;
+}
+
+.cursor div {
+  width: 40%;
+  height: 40%;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.05, 0.5, 0, 1);
+}
+.development {
+  background-image: url(./../../img/icons/webDevIcon.svg);
+}
+.design {
+  background-image: url(./../../img/icons/designIcon.svg);
+}
+.animation {
+  background-image: url(./../../img/icons/animationIcon.svg);
+}
+.home {
+  background-image: url(./../../img/icons/homeIcon.svg);
+}
+.contact {
+  background-image: url(./../../img/icons/contactIcon.svg);
+}

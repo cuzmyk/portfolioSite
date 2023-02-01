@@ -1,0 +1,93 @@
+.projects {
+  height: 100vh;
+  // padding: 100px 0 0 0;
+}
+
+.projects__item {
+  height: 90%;
+  display: grid;
+  grid-template: 2fr 2fr 1fr / 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $secondary-color;
+}
+.projects__item > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects__img {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.project__img {
+  overflow: hidden;
+  height: 100%;
+}
+.project-img__bg {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.project__title {
+  border-bottom: 1px solid $secondary-color;
+  @extend %title-text;
+  text-align: center;
+}
+
+.project__desc {
+  padding: 10%;
+  @extend %regular-text;
+  text-align: center;
+  border-bottom: 1px solid $secondary-color;
+}
+.project__links {
+  column-gap: 32px;
+}
+.project__links img {
+  transition: all 0.2s $transition;
+}
+.project__links img:hover {
+  opacity: 0.8;
+}
+.project__btn {
+  border-right: 1px solid $secondary-color;
+}
+.project__btn svg {
+  max-width: 70px;
+}
+.project__btn svg path {
+  fill: transparent;
+  transition: all 0.2s $transition;
+}
+.project__btn:hover {
+  svg path {
+    fill: #fff;
+  }
+}
+.project__btn:active {
+  svg {
+    scale: 0.97;
+  }
+}
+
+.project__banner {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  @extend %title-text;
+  color: $secondary-color;
+  border-top: 1px solid $secondary-color;
+}

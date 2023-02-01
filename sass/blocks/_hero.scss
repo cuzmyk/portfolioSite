@@ -1,0 +1,87 @@
+.hero__greeting {
+  bottom: 0;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__wave-1 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  will-change: transform;
+}
+.hero__wave-2 {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  will-change: transform;
+}
+.parallax-wave {
+  max-width: none;
+  transform: translateY(400px);
+}
+.hero__wave-1 svg {
+  max-width: none;
+}
+
+.hero__wave-1 svg path,
+.hero__wave-2 svg path {
+  fill: $accent-color;
+}
+
+.hero__logo {
+  position: absolute;
+  width: 500px;
+  left: 50%;
+  transform: translate3d(-50%, 100%, 0);
+  opacity: 0;
+  will-change: transform;
+  top: 40%;
+  z-index: 2;
+  transition: transform 0.8s $transition, opacity 0.8s $transition;
+}
+
+.hero__logo.animated {
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+}
+
+.hero__logo svg path {
+  fill: #fff;
+}
+
+.hero__more {
+  position: absolute;
+  padding: 14px 105px;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $primary-color;
+  box-shadow: -1px -1px 2px rgba(32, 32, 32, 0.25),
+    1px 1px 2px rgba(0, 0, 0, 0.25), -5px -5px 7px rgba(32, 32, 32, 0.25),
+    5px 5px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  z-index: 5;
+  @extend %regular-text;
+  transition: background-color 0.2s $transition, box-shadow 0.2s $transition;
+}
+
+.hero__more:hover {
+  background: $secondary-color;
+}
+
+.hero__more:active {
+  box-shadow: 0 0 0 rgba(32, 32, 32, 0), 0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 rgba(32, 32, 32, 0), 0 0 0 rgba(0, 0, 0, 0),
+    inset -1px -1px 2px rgba(32, 32, 32, 0.5),
+    inset -5px -5px 7px rgba(32, 32, 32, 0.5),
+    inset 2px 2px 1px rgba(0, 0, 0, 0.25), inset 5px 5px 7px rgba(0, 0, 0, 0.25);
+}
