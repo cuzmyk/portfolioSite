@@ -121,8 +121,8 @@
     width: 350px;
   }
   .circle {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     &:nth-child(1) {
       left: -10%;
     }
@@ -131,6 +131,6 @@
     }
   }
   .circle__text span {
-    transform-origin: 0 100px;
+    transform-origin: 0 150px;
   }
 }

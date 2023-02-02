@@ -1,31 +1,3 @@
-//CURSOR
-window.addEventListener("mousemove", (e) => {
-  document.body.style = `--move-x: ${e.clientX}px; --move-y: ${e.clientY}px`;
-});
-
-const cursor = document.querySelector(".cursor");
-const cursorImg = document.querySelector(".cursor__img");
-
-window.addEventListener("mousemove", (e) => {
-  if (
-    e.target.parentElement.dataset.cursor ||
-    e.target.dataset.cursor
-    //e.target.classList.contains("services__row") ||
-    //e.target.parentElement.classList.contains("services__row")
-  ) {
-    // console.log(e.target.closest(".services__row").dataset.cursor);
-    cursor.classList.add("visible");
-    cursorImg.className = `${
-      e.target.dataset.cursor
-        ? e.target.dataset.cursor
-        : e.target.parentElement.dataset.cursor
-      // e.target.closest(".services__row").dataset.cursor
-    }`;
-  } else {
-    cursor.classList.remove("visible");
-  }
-});
-
 //SCROLL TO ANCHOR BUTTON
 const anchors = document.querySelectorAll('a[href^="#"]');
 
@@ -69,30 +41,62 @@ headerSection.addEventListener("mousemove", (e) => {
   }
 });
 
-//MOVING VISIT CARD ANIMTAION
+console.log(window.screen.width);
 const aboutSection = document.querySelector("#more");
-aboveHeight = headerSection.offsetHeight;
-ax = aboutSection.offsetWidth / 2;
-ay = aboutSection.offsetHeight / 2;
+if (window.screen.width >= 600) {
+  //CURSOR
+  window.addEventListener("mousemove", (e) => {
+    document.body.style = `--move-x: ${e.clientX}px; --move-y: ${e.clientY}px`;
+  });
 
-aboutSection.addEventListener("mousemove", (e) => {
-  clientX = e.pageX;
-  clientY = e.pageY - aboveHeight;
+  const cursor = document.querySelector(".cursor");
+  const cursorImg = document.querySelector(".cursor__img");
 
-  request = requestAnimationFrame(updateMe);
+  window.addEventListener("mousemove", (e) => {
+    if (
+      e.target.parentElement.dataset.cursor ||
+      e.target.dataset.cursor
+      //e.target.classList.contains("services__row") ||
+      //e.target.parentElement.classList.contains("services__row")
+    ) {
+      // console.log(e.target.closest(".services__row").dataset.cursor);
+      cursor.classList.add("visible");
+      cursorImg.className = `${
+        e.target.dataset.cursor
+          ? e.target.dataset.cursor
+          : e.target.parentElement.dataset.cursor
+        // e.target.closest(".services__row").dataset.cursor
+      }`;
+    } else {
+      cursor.classList.remove("visible");
+    }
+  });
 
-  function updateMe() {
-    let dx = clientX - ax;
-    let dy = clientY - ay;
-    tiltx = dy / ay;
-    tilty = dx / ax;
-    radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
-    degree = radius * 15;
-    gsap.to(".card", 1, {
-      transform: `rotate3d(${-tiltx},${tilty},0,${degree}deg)`,
-    });
-  }
-});
+  //MOVING VISIT CARD ANIMTAION
+
+  aboveHeight = headerSection.offsetHeight;
+  ax = aboutSection.offsetWidth / 2;
+  ay = aboutSection.offsetHeight / 2;
+
+  aboutSection.addEventListener("mousemove", (e) => {
+    clientX = e.pageX;
+    clientY = e.pageY - aboveHeight;
+
+    request = requestAnimationFrame(updateMe);
+
+    function updateMe() {
+      let dx = clientX - ax;
+      let dy = clientY - ay;
+      tiltx = dy / ay;
+      tilty = dx / ax;
+      radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
+      degree = radius * 15;
+      gsap.to(".card", 1, {
+        transform: `rotate3d(${-tiltx},${tilty},0,${degree}deg)`,
+      });
+    }
+  });
+}
 
 //PARALLAX EFFECT ON HEADER WAVE
 const wave = document.querySelector(".parallax-wave");

@@ -1,3 +1,4 @@
+@import url(./../node_modules/swiper/swiper-bundle.css);
 @font-face {
   font-family: "Dreadnoughtus";
   src: url(./../../fonts/DreadnoughtusMedium.woff); }
@@ -98,7 +99,7 @@ body {
     font-size: 30px; }
 
   .circle__text span, .projects__banner h4 {
-    font-size: 12px; }
+    font-size: 30px; }
 
   .cursor {
     display: none; } }
@@ -225,7 +226,6 @@ legend {
 .hero__wave-1 {
   position: absolute;
   z-index: 1;
-  bottom: 0;
   left: 50%;
   bottom: 10%;
   transform: translateX(-50%);
@@ -286,6 +286,9 @@ legend {
 .hero__more:active {
   box-shadow: 0 0 0 rgba(32, 32, 32, 0), 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(32, 32, 32, 0), 0 0 0 rgba(0, 0, 0, 0), inset -1px -1px 2px rgba(32, 32, 32, 0.5), inset -5px -5px 7px rgba(32, 32, 32, 0.5), inset 2px 2px 1px rgba(0, 0, 0, 0.25), inset 5px 5px 7px rgba(0, 0, 0, 0.25); }
 
+@media (max-width: 600px) {
+  .hero__logo {
+    width: 300px; } }
 .about {
   position: relative;
   min-height: 100vh;
@@ -382,15 +385,15 @@ legend {
     width: 350px; }
 
   .circle {
-    width: 200px;
-    height: 200px; }
+    width: 300px;
+    height: 300px; }
     .circle:nth-child(1) {
       left: -10%; }
     .circle:nth-child(2) {
       right: -10%; }
 
   .circle__text span {
-    transform-origin: 0 100px; } }
+    transform-origin: 0 150px; } }
 .services {
   position: relative;
   padding: 30px;
@@ -497,8 +500,7 @@ legend {
   overflow: visible; }
 
 .services__background svg {
-  object-fit: cover;
-  bottom: 0; }
+  object-fit: cover; }
 
 @media (max-width: 600px) {
   .services {
@@ -524,7 +526,11 @@ legend {
     justify-self: center; }
 
   .row__desc {
-    text-align: center; } }
+    text-align: center; }
+
+  .services__background {
+    width: 300%;
+    align-items: start; } }
 .projects {
   height: 100vh;
   margin-bottom: 100px; }
