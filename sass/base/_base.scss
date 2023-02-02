@@ -31,10 +31,11 @@ $index: calc(1vw+1vh);
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  // font-size: calc(#{$index} * 1.5);
+  // font-size: calc(#{$index} * 1.01);
   line-height: 27px;
   color: $text-color;
 }
+
 %subtitle-text {
   font-family: "OpenSans", sans-serif;
   font-style: normal;
@@ -91,25 +92,46 @@ body {
 .cursor div {
   width: 40%;
   height: 40%;
-
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
   transition: all 0.2s cubic-bezier(0.05, 0.5, 0, 1);
 }
-.development {
-  background-image: url(./../../img/icons/webDevIcon.svg);
+.cursor div {
+  &.development {
+    background-image: url(./../../img/icons/webDevIcon.svg);
+  }
+  &.design {
+    background-image: url(./../../img/icons/designIcon.svg);
+  }
+  &.animation {
+    background-image: url(./../../img/icons/animationIcon.svg);
+  }
+  &.home {
+    background-image: url(./../../img/icons/homeIcon.svg);
+  }
+  &.contact {
+    background-image: url(./../../img/icons/contactIcon.svg);
+  }
 }
-.design {
-  background-image: url(./../../img/icons/designIcon.svg);
-}
-.animation {
-  background-image: url(./../../img/icons/animationIcon.svg);
-}
-.home {
-  background-image: url(./../../img/icons/homeIcon.svg);
-}
-.contact {
-  background-image: url(./../../img/icons/contactIcon.svg);
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  %regular-text {
+    font-size: 12px;
+  }
+  %subtitle-text {
+    font-size: 30px;
+  }
+  %title-text {
+    font-size: 12px;
+  }
+  .cursor {
+    display: none;
+  }
 }
