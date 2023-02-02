@@ -41,7 +41,6 @@ headerSection.addEventListener("mousemove", (e) => {
   }
 });
 
-console.log(window.screen.width);
 const aboutSection = document.querySelector("#more");
 if (window.screen.width >= 600) {
   //CURSOR
