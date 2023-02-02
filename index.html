@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cuzmyk</title>
-    <link rel="stylesheet" href="./css/main.css" />
+    
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      href="./node_modules/swiper/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <div class="cursor">
@@ -172,7 +173,7 @@
                 building your own website for further publication
               </p>
             </div>
-            <div data-cursor="design" class="services__row">
+            <div data-cursor="design" class="services__row animated-item">
               <div class="row__tools animated-item">
                 <div class="row__tool">
                   <img src="./img/icons/figmaIcon.svg" alt="" />
@@ -190,7 +191,7 @@
                 you
               </p>
             </div>
-            <div data-cursor="animation" class="services__row">
+            <div data-cursor="animation" class="services__row animated-item">
               <div class="row__tools animated-item">
                 <div class="row__tool">
                   <img src="./img/icons/jsIcon.svg" alt="" />
@@ -235,7 +236,9 @@
       </section>
 
       <section class="projects">
-        <h4 class="project__banner">projects · projects</h4>
+        <div class="projects__banner">
+          <h4 >projects · projects   · projects</h4>
+        </div>
         <div class="projects__item">
           <div class="projects__img">
             <div class="swiper-wrapper">
@@ -261,18 +264,13 @@
                 ></div>
               </div>
             </div>
+            <div class="projects__pagination">
+
+              <div class="swiper-pagination"></div>
+            </div>
             <!-- <img src="./img/porjects/project1.jpg" alt="" /> -->
           </div>
-          <div class="project__title">
-            <h3>GROK</h3>
-          </div>
-          <div class="project__desc">
-            <p>
-              It's a huge step forward though, and the problem of having to keep
-              track of your resume is much worse than the problem of having to
-              keep track of the project's quality score.
-            </p>
-          </div>
+
           <button class="project__btn left">
             <svg
               viewBox="0 0 67 28"
@@ -298,9 +296,51 @@
             </svg>
           </button>
 
-          <div class="project__links">
-            <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
-            <a href="!#"><img src="./img/icons/network.svg" alt="" /></a>
+          <div class="projects__info">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="project-info__wrapper">
+                  <div class="project__title"><h3 class="project__title">GROK</h3></div>
+                  <div class="project__desc"><p class="project__desc">
+                    It's a huge step forward though, and the problem of having to keep
+                    track of your resume is much worse than the problem of having to
+                    keep track of the project's quality score.
+                  </p></div>
+                  <div class="project__links">
+                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
+                    <a href="!#"><img src="./img/icons/network.svg" alt="" /></a></div>
+                  </div>
+                </div>
+              
+              <div class="swiper-slide">
+                <div class="project-info__wrapper">
+                  <div class="project__title"><h3 class="project__title">MOUNTAIN</h3></div>
+                  <div class="project__desc"><p class="project__desc">
+                    It's a huge step forward though, and the problem of having to keep
+                    track of your resume is much worse than the problem of having to
+                    keep track of the project's quality score.
+                  </p></div>
+                  <div class="project__links">
+                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
+                    <a href="!#"><img src="./img/icons/network.svg" alt="" /></a></div>
+                  </div>
+                </div>
+              <div class="swiper-slide">
+                <div class="project-info__wrapper">
+                  <div class="project__title"><h3 class="project__title">FOREST</h3></div>
+                  <div class="project__desc"><p class="project__desc">
+                    It's a huge step forward though, and the problem of having to keep
+                    track of your resume is much worse than the problem of having to
+                    keep track of the project's quality score.
+                  </p></div>
+                  <div class="project__links">
+                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
+                    <a href="!#"><img src="./img/icons/network.svg" alt="" /></a></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+       
           </div>
         </div>
       </section>
@@ -308,8 +348,9 @@
 
     <script src="./libs/gsap-public/minified/gsap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
+    <script src="./node_modules/swiper/bindSwipers.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/script.js"></script>
   </body>

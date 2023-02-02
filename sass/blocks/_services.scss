@@ -2,7 +2,7 @@
   position: relative;
   padding: 30px;
   min-height: 100vh;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,26 +10,35 @@
 }
 
 .services__row {
+  position: relative;
   display: grid;
   grid-template-columns: 3fr 6fr 3fr;
-  // grid-template-columns: repeat(auto-fit, 3fr 6fr 3fr);
+  
   column-gap: 30px;
   padding: 55px 0;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: white;
+ 
   align-items: center;
   overflow: hidden;
-  transition: all 0.5 ease;
+}
+.services__row::after{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  border-top: 1px solid white;
+  transform: scaleX(0);
+  transition: transform 2s ease;
 }
 
-.services__row.animated {
+.services__row.animated::after{
+  transform: scaleX(1);
   //bored will be appear out of center
 }
 
-.services__row:nth-child(1) {
-  border-width: 1px 0 1px 0;
-}
+// .services__row:nth-child(1) {
+//   border-width: 1px 0 1px 0;
+// }
 
 .row__tools {
   justify-self: left;
@@ -41,7 +50,7 @@
   transform: translate3d(-100px, 0, 0);
   opacity: 0;
   transition: transform 0.8s $transition, opacity 0.8s $transition;
-  transition-delay: 0.3s;
+
 }
 
 .row__tool {
@@ -54,29 +63,54 @@
   opacity: 0;
   @extend %subtitle-text;
   transition: transform 0.8s $transition, opacity 0.8s $transition;
+
 }
 .row__desc {
   text-align: right;
   transform: translate3d(100px, 0, 0);
   opacity: 0;
   transition: transform 0.8s $transition, opacity 0.8s $transition;
-  transition-delay: 0.3s;
+
 }
 
-.services__row:nth-child(1) .row__title,
-.services__row:nth-child(1) .row__desc,
-.services__row:nth-child(1) .row__tools {
-  transition-delay: 0.1s;
+.services__row:nth-child(1){
+ .row__title{
+  transition-delay: 0.5s;
 }
-.services__row:nth-child(2) .row__title,
-.services__row:nth-child(2) .row__desc,
-.services__row:nth-child(2) .row__tools {
+.row__desc,
+.row__tools {
+  transition-delay: 1s;
+}
+};
+
+.services__row:nth-child(2){
+.row__title{
+  transition-delay: 0.7s;
+}
+.row__desc,
+.row__tools {
+  transition-delay: 1.2s;
+}
+&::after{
   transition-delay: 0.2s;
 }
-.services__row:nth-child(3) .row__title,
-.services__row:nth-child(3) .row__desc,
-.services__row:nth-child(3) .row__tools {
-  transition-delay: 0.3s;
+}; 
+
+.services__row:nth-child(3) {
+
+.row__title{
+  transition-delay: 0.9s;
+}
+.row__desc,
+.row__tools {
+  transition-delay: 1.4s;
+}
+&::after{
+  transition-delay: 0.4s;
+}
+&.animated::after{
+  border-bottom: 1px solid white;
+}
 }
 
 .row__desc.animated,
@@ -95,7 +129,7 @@
   height: 100%;
 
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   display: flex;
   align-items: end;
   overflow: visible;
