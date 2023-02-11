@@ -1,3 +1,34 @@
+const wrapper = document.querySelector("#wrapper");
+
+const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+const uniqueRand = (min, max, prev) => {
+  let next = prev;
+  while (prev === next) next = rand(min, max);
+  return next;
+};
+
+const combinations = [
+  { configuration: 1, roundness: 1 },
+  { configuration: 1, roundness: 2 },
+  { configuration: 1, roundness: 3 },
+  { configuration: 2, roundness: 2 },
+  { configuration: 2, roundness: 3 },
+  { configuration: 3, roundness: 1 },
+  { configuration: 3, roundness: 4 },
+];
+
+let prev = 0;
+
+setInterval(() => {
+  const i = uniqueRand(0, combinations.length - 1, prev);
+  let combination = combinations[i];
+
+  wrapper.dataset.configuration = combination.configuration;
+  wrapper.dataset.roundness = combination.roundness;
+  prev = i;
+}, 3000);
+
 //SCROLL TO ANCHOR BUTTON
 const anchors = document.querySelectorAll('a[href^="#"]');
 
@@ -18,28 +49,6 @@ for (let anchor of anchors) {
 
 //MOVING WAVES ANIMATION
 const headerSection = document.querySelector(".header");
-hx = headerSection.offsetWidth / 2;
-hy = headerSection.offsetHeight / 2;
-
-headerSection.addEventListener("mousemove", (e) => {
-  clientX = e.pageX;
-
-  request = requestAnimationFrame(moveWave);
-  function moveWave() {
-    let dx = clientX - hx;
-
-    tiltx = (dx / hx) * 23;
-
-    gsap.to(".hero__wave-1", 1, {
-      transform: `translate(${-tiltx / 2 - 50}% ,0)`,
-    });
-    if (tiltx <= 30 || tiltx >= -50) {
-      gsap.to(".hero__wave-2", 1, {
-        transform: `translate(${-tiltx - 50}%,0)`,
-      });
-    }
-  }
-});
 
 const aboutSection = document.querySelector("#more");
 if (window.screen.width >= 600) {
@@ -96,15 +105,6 @@ if (window.screen.width >= 600) {
     }
   });
 }
-
-//PARALLAX EFFECT ON HEADER WAVE
-const wave = document.querySelector(".parallax-wave");
-window.addEventListener("scroll", function () {
-  let value = window.scrollY;
-  if (value <= 800) {
-    wave.style.transform = `translateY(${400 - value / 2}px)`;
-  }
-});
 
 //CIRCLE TEXT ANIMATION
 const circleText = document.querySelectorAll(".circle__text h4");
