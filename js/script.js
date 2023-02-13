@@ -1,3 +1,25 @@
+//HORIZONTAL SCROLL
+const container = document.querySelector(".scroll-wrapper");
+const sections = gsap.utils.toArray(".scroll-wrapper section");
+
+let scrollTween = gsap.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".scroll-wrapper",
+    pin: true,
+    scrub: 1,
+    snap: {
+      snapTo: 1 / (sections.length - 1),
+      duration: { min: 0.1, max: 1 },
+      delay: 0,
+    },
+    end: () => "+=" + container.offsetWidth,
+  },
+});
+
+//HERO LOGO ANIMATION
+
 const wrapper = document.querySelector("#wrapper");
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -27,7 +49,7 @@ setInterval(() => {
   wrapper.dataset.configuration = combination.configuration;
   wrapper.dataset.roundness = combination.roundness;
   prev = i;
-}, 3000);
+}, 2000);
 
 //SCROLL TO ANCHOR BUTTON
 const anchors = document.querySelectorAll('a[href^="#"]');
@@ -48,57 +70,55 @@ for (let anchor of anchors) {
 }
 
 //MOVING WAVES ANIMATION
-const headerSection = document.querySelector(".header");
+const headerSection = document.querySelector(".hero__greeting");
 
 const aboutSection = document.querySelector("#more");
 if (window.screen.width >= 600) {
   //CURSOR
-  window.addEventListener("mousemove", (e) => {
-    document.body.style = `--move-x: ${e.clientX}px; --move-y: ${e.clientY}px`;
-  });
+  // window.addEventListener("mousemove", (e) => {
+  //   document.body.style = `--move-x: ${e.clientX}px; --move-y: ${e.clientY}px`;
+  // });
 
-  const cursor = document.querySelector(".cursor");
-  const cursorImg = document.querySelector(".cursor__img");
+  // const cursor = document.querySelector(".cursor");
+  // const cursorImg = document.querySelector(".cursor__img");
 
-  window.addEventListener("mousemove", (e) => {
-    if (
-      e.target.parentElement.dataset.cursor ||
-      e.target.dataset.cursor
-      //e.target.classList.contains("services__row") ||
-      //e.target.parentElement.classList.contains("services__row")
-    ) {
-      // console.log(e.target.closest(".services__row").dataset.cursor);
-      cursor.classList.add("visible");
-      cursorImg.className = `${
-        e.target.dataset.cursor
-          ? e.target.dataset.cursor
-          : e.target.parentElement.dataset.cursor
-        // e.target.closest(".services__row").dataset.cursor
-      }`;
-    } else {
-      cursor.classList.remove("visible");
-    }
-  });
+  // window.addEventListener("mousemove", (e) => {
+  //   if (
+  //     e.target.parentElement.dataset.cursor ||
+  //     e.target.dataset.cursor
+  //   ) {
+
+  //     cursor.classList.add("visible");
+  //     cursorImg.className = `${
+  //       e.target.dataset.cursor
+  //         ? e.target.dataset.cursor
+  //         : e.target.parentElement.dataset.cursor
+  //     }`;
+  //   } else {
+  //     cursor.classList.remove("visible");
+  //   }
+  // });
 
   //MOVING VISIT CARD ANIMTAION
 
-  aboveHeight = headerSection.offsetHeight;
-  ax = aboutSection.offsetWidth / 2;
-  ay = aboutSection.offsetHeight / 2;
+  // ax = aboutSection.offsetWidth / 2;
+  // ay = aboutSection.offsetHeight / 2;
+  ax = window.innerWidth / 2;
+  ay = window.innerHeight / 2;
 
   aboutSection.addEventListener("mousemove", (e) => {
     clientX = e.pageX;
-    clientY = e.pageY - aboveHeight;
+    clientY = e.pageY;
 
     request = requestAnimationFrame(updateMe);
 
     function updateMe() {
       let dx = clientX - ax;
       let dy = clientY - ay;
-      tiltx = dy / ay;
+      tiltx = dy / ay - 1;
       tilty = dx / ax;
       radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
-      degree = radius * 15;
+      degree = radius * 12;
       gsap.to(".card", 1, {
         transform: `rotate3d(${-tiltx},${tilty},0,${degree}deg)`,
       });

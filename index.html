@@ -9,41 +9,35 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <div class="cursor">
+    <!-- <button id="menu"></button> -->
+    <!-- <nav class="menu">
+      <ul class="menu__links">
+        <li><a href="#more">About me</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact me</a></li>
+      </ul>
+    </nav> -->
+    <!-- <div class="cursor">
       <div class="cursor__img"></div>
-    </div>
-
-    <header class="header">
-      <div class="container">
-        <nav class="header__nav">
-          <ul class="header__links">
-            <li class="header__link">
-              <a data-cursor="home" href="#">home</a>
-            </li>
-            <li class="header__link">
-              <a data-cursor="contact" href="#">contacts</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="hero__greeting">
-        <div id="wrapper" data-roundness="3" data-configuration="2">
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
+    </div> -->
+    <div class="scroll-wrapper">
+      <section>
+        <div class="hero__greeting">
+          <div id="wrapper" data-roundness="3" data-configuration="2">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+          </div>
         </div>
-      </div>
-      <a href="#more" class="hero__more">more</a>
-    </header>
+      </section>
 
-    <main>
       <section id="more" class="about">
         <div class="circle">
           <div class="circle__text">
@@ -79,57 +73,55 @@
       <section class="services">
         <div class="container">
           <div class="services__wrapper">
-            <div data-cursor="development" class="services__row animated-item">
-              <div class="row__tools animated-item">
-                <div class="row__tool">
-                  <img src="./img/icons/htmlIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/cssIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/jsIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/sassIcon.svg" alt="" />
-                </div>
+            <div class="services__item">
+              <div class="service__icon">
+                <img src="./img/icons/devNOIZE.png" alt="" />
               </div>
-              <h3 class="row__title animated-item">front-end development</h3>
-              <p class="row__desc animated-item">
-                building your own website for further publication
-              </p>
+              <div class="service__info">
+                <h3 class="service__title">front-end development</h3>
+                <p class="service__desc">
+                  building your own website for further publication
+                </p>
+              </div>
+              <div class="service__tools">
+                <img src="./img/icons/htmlIcon.svg" alt="" />
+                <img src="./img/icons/cssIcon.svg" alt="" />
+                <img src="./img/icons/jsIcon.svg" alt="" />
+                <img src="./img/icons/sassIcon.svg" alt="" />
+              </div>
             </div>
-            <div data-cursor="design" class="services__row animated-item">
-              <div class="row__tools animated-item">
-                <div class="row__tool">
-                  <img src="./img/icons/figmaIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/illustratorIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/photoshopIcon.svg" alt="" />
-                </div>
+            <div class="services__item">
+              <div class="service__icon">
+                <img src="./img/icons/designNOIZE.png" alt="" />
               </div>
-              <h3 class="row__title animated-item">web design</h3>
-              <p class="row__desc animated-item">
-                different and creative solutions to create a unique website for
-                you
-              </p>
+              <div class="service__info">
+                <h3 class="service__title">web design</h3>
+                <p class="service__desc">
+                  different and creative solutions to create a unique website
+                  for you
+                </p>
+              </div>
+              <div class="service__tools">
+                <img src="./img/icons/figmaIcon.svg" alt="" />
+                <img src="./img/icons/photoshopIcon.svg" alt="" />
+                <img src="./img/icons/illustratorIcon.svg" alt="" />
+              </div>
             </div>
-            <div data-cursor="animation" class="services__row animated-item">
-              <div class="row__tools animated-item">
-                <div class="row__tool">
-                  <img src="./img/icons/jsIcon.svg" alt="" />
-                </div>
-                <div class="row__tool">
-                  <img src="./img/icons/aeIcon.svg" alt="" />
-                </div>
+            <div class="services__item">
+              <div class="service__icon">
+                <img src="./img/icons/animationsNOIZE.png" alt="" />
               </div>
-              <h3 class="row__title animated-item">animations</h3>
-              <p class="row__desc animated-item">
-                pretty and interactive animations to make website look amazing
-              </p>
+              <div class="service__info">
+                <h3 class="service__title">animations</h3>
+                <p class="service__desc">
+                  interactive and pretty animations to make your website look
+                  amazing
+                </p>
+              </div>
+              <div class="service__tools">
+                <img src="./img/icons/jsIcon.svg" alt="" />
+                <img src="./img/icons/aeIcon.svg" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -291,37 +283,34 @@
           </div>
         </div>
       </section>
-
-      <section class="feedback">
-        <div class="container">
-          <div class="feedback__wrapper">
-            <div class="feedback__form">
-              <label for="name" class="form__name">Your name</label>
-              <input type="text" name="name" class="form__input" />
-              <label for="email" class="form__name">Your email</label>
-              <input type="tetx" name="email" class="form__input" />
-              <label for="message" class="form__name">Your message</label>
-              <input type="text" name="message" class="form__input" />
-              <button class="form__send">send</button>
-            </div>
-            <div class="feedback__contacts">
-              <h5 class="contacts__title">number</h5>
-              <p class="contacts__info">+7 (912) 415 - 13 - 28</p>
-              <h5 class="contacts__title">email</h5>
-              <p class="contacts__info">cuzmykey@yandex.ru</p>
-              <h5 class="contacts__title">follow me on</h5>
-              <p class="contacts__info">some links</p>
-            </div>
+    </div>
+    <section class="feedback">
+      <div class="container">
+        <div class="feedback__wrapper">
+          <div class="feedback__form">
+            <label for="name" class="form__name">Your name</label>
+            <input type="text" name="name" class="form__input" />
+            <label for="email" class="form__name">Your email</label>
+            <input type="tetx" name="email" class="form__input" />
+            <label for="message" class="form__name">Your message</label>
+            <input type="text" name="message" class="form__input" />
+            <button class="form__send">send</button>
+          </div>
+          <div class="feedback__contacts">
+            <h5 class="contacts__title">number</h5>
+            <p class="contacts__info">+7 (912) 415 - 13 - 28</p>
+            <h5 class="contacts__title">email</h5>
+            <p class="contacts__info">cuzmykey@yandex.ru</p>
+            <h5 class="contacts__title">follow me on</h5>
+            <p class="contacts__info">some links</p>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <script src="./libs/gsap-public/minified/gsap.min.js"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <script src="./libs/gsap-public/minified/ScrollTrigger.min.js"></script>
     <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
-
     <script src="./js/swiper.js"></script>
     <script src="./js/script.js"></script>
   </body>

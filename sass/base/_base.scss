@@ -2,6 +2,10 @@
   font-family: "Dreadnoughtus";
   src: url(./../../fonts/DreadnoughtusMedium.woff);
 }
+@font-face {
+  font-family: "BwDarius";
+  src: url(./../../fonts/BwDarius-Bold.ttf);
+}
 
 @font-face {
   font-family: "OpenSans";
@@ -48,6 +52,7 @@ $index: calc(1vw+1vh);
 }
 
 %title-text {
+  // font-family: "BwDarius", sans-serif;
   font-family: "Dreadnoughtus", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -58,6 +63,18 @@ $index: calc(1vw+1vh);
 body {
   @extend %regular-text;
   background-color: $primary-color;
+}
+
+.scroll-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  section {
+    flex: none;
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 .container {
