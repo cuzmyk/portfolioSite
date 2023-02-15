@@ -16,7 +16,7 @@
 .none {
   display: none !important; }
 
-body, .header__link a, .hero__more, .card__text, .service__desc, .project__desc, .form__input, .form__name, .form__send {
+body, .header__link a, .hero__more, .card__text, .service__desc, .projects__list h5, .form__input, .form__name, .form__send {
   font-family: "OpenSans", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -24,7 +24,7 @@ body, .header__link a, .hero__more, .card__text, .service__desc, .project__desc,
   line-height: 27px;
   color: #fff; }
 
-.service__title, .project__title, .contacts__info {
+.service__title, .contacts__info {
   font-family: "OpenSans", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -33,7 +33,7 @@ body, .header__link a, .hero__more, .card__text, .service__desc, .project__desc,
   color: #fff;
   text-transform: uppercase; }
 
-.circle__text span, .projects__banner h4, .feedback__contacts::after {
+.circle__text span, .slide__title, .feedback__contacts::after {
   font-family: "Dreadnoughtus", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -104,13 +104,13 @@ body {
     padding: 0 15px;
     margin: 0 auto; }
 
-  body, .header__link a, .hero__more, .card__text, .service__desc, .project__desc, .form__input, .form__name, .form__send {
+  body, .header__link a, .hero__more, .card__text, .service__desc, .projects__list h5, .form__input, .form__name, .form__send {
     font-size: 12px; }
 
-  .service__title, .project__title, .contacts__info {
+  .service__title, .contacts__info {
     font-size: 30px; }
 
-  .circle__text span, .projects__banner h4, .feedback__contacts::after {
+  .circle__text span, .slide__title, .feedback__contacts::after {
     font-size: 30px; }
 
   .cursor {
@@ -787,172 +787,55 @@ legend {
     width: 300%;
     align-items: start; } }
 .projects {
-  height: 100vh; }
-
-.projects__banner {
-  position: relative;
-  height: 10%;
   display: flex;
-  align-items: center;
-  padding: 10px;
-  overflow: hidden;
-  color: #222;
-  border-top: 1px solid #222; }
+  position: relative; }
 
-.projects__banner h4 {
+.projects::after {
+  content: "";
   position: absolute;
-  white-space: nowrap;
-  animation: slide 20s linear infinite;
-  letter-spacing: 10px; }
-
-@keyframes slide {
-  0% {
-    transform: translateX(-150%); }
-  100% {
-    transform: translateX(165%); } }
-.projects__item {
-  height: 90%;
-  display: grid;
-  grid-template: 4fr 1fr / 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid #222;
-  grid-template-areas: "image image info" "btnLeft btnRight info"; }
-
-.projects__item > * {
-  height: 100%; }
-
-.projects__img {
   width: 100%;
-  overflow: hidden;
+  height: 50%;
+  border-bottom: 2px solid #222;
+  z-index: -4; }
+
+.projects__list {
+  margin-top: 25vh;
+  padding-left: 2vw;
+  width: 10vw; }
+
+.projects__list h5 {
+  text-transform: uppercase; }
+
+.projects__list h5 + h5 {
+  margin-top: 20px; }
+
+.projects > .container {
   position: relative;
-  grid-area: image; }
-
-.project__img {
-  overflow: hidden;
-  height: 100%; }
-
-.project-img__bg {
-  height: 100%;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; }
-
-.projects__info {
-  overflow: hidden;
-  grid-area: info; }
-
-.project-info__wrapper {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 2fr 2fr 1fr; }
-
-.project__title {
+  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0 15px;
-  text-align: center;
-  border-top: 1px solid #222; }
+  flex-direction: column;
+  justify-content: center; }
 
-.project__title h3 {
-  border: none; }
+.slide__title {
+  font-size: 150px;
+  text-transform: uppercase;
+  margin-bottom: 100px; }
 
-.project__desc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0 25px;
-  text-align: center;
-  border-top: 1px solid #222; }
-
-.project__desc p {
-  border: none; }
-
-.project__links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 32px;
-  border-top: 1px solid #222; }
-
-.project__links img {
-  max-width: 40px;
-  transition: all 0.2s cubic-bezier(0, 0.52, 0.43, 0.99); }
-
-.project__links img:hover {
-  opacity: 0.5; }
-
-.project__btn {
-  border-right: 1px solid #222; }
-
-.project__btn.left {
-  grid-area: btnLeft; }
-
-.project__btn.right {
-  grid-area: btnRight; }
-
-.project__btn svg {
-  max-width: 70px; }
-
-.project__btn svg path {
-  fill: transparent;
-  transition: all 0.2s cubic-bezier(0, 0.52, 0.43, 0.99); }
-
-.project__btn:hover svg path {
-  fill: #fff; }
-.project__btn:hover.swiper-button-disabled svg path {
-  fill: none; }
-
-.project__btn:active svg {
-  scale: 0.97; }
-
-.swiper-button-disabled svg {
-  opacity: 0.2; }
-
-.projects__pagination {
+.slide__img {
   position: absolute;
-  bottom: 0;
-  height: 15%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(180deg, rgba(34, 34, 34, 0), #222222);
-  z-index: 1; }
-  .projects__pagination .swiper-pagination {
-    position: static;
-    display: flex;
-    column-gap: 10px;
-    height: 50%;
-    align-items: center;
-    justify-content: center; }
-  .projects__pagination .swiper-pagination-bullet {
-    position: static;
-    opacity: 0.7;
-    background-color: #fff; }
-  .projects__pagination .swiper-pagination-bullet-active {
-    opacity: 1;
-    background-color: #3935fe; }
+  height: 50vh;
+  width: 50vw;
+  top: 50%;
+  left: 5vw;
+  transform: translateY(-50%);
+  z-index: -1; }
 
-@media (max-width: 600px) {
-  .projects__item {
-    grid-template: 2fr 3fr 1fr / 1fr 1fr;
-    grid-template-areas: "image image" "info info" "btnLeft btnRight"; }
+.slide__img img {
+  object-fit: cover; }
 
-  .project-info__wrapper {
-    grid-template-rows: 1fr 2fr 1fr; }
+.slide__desc {
+  width: 20vw; }
 
-  .project__btn {
-    border-top: 1px solid #222; }
-
-  .project__btn:hover svg path {
-    fill: transparent; }
-
-  .project__btn:active svg path {
-    fill: #fff; } }
 .feedback {
   width: 100%;
   height: 100vh;
