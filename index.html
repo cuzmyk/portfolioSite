@@ -22,7 +22,7 @@
       <div class="cursor__img"></div>
     </div> -->
     <div class="scroll-wrapper">
-      <section>
+      <section class="">
         <div class="hero__greeting">
           <div id="wrapper" data-roundness="3" data-configuration="2">
             <div class="shape"></div>
@@ -159,141 +159,36 @@
           <h5>typing test</h5>
           <h5>artnahabino</h5>
         </div>
-        <div class="container">
+
+        <div class="slide__wrapper">
           <h3 class="slide__title">Grok</h3>
-          <div class="slide__img"><img src="./img/porjects/project1.jpg" alt=""></div>
+          <div
+            class="slide__img"
+            style="background-image: url(./img/porjects/project1.jpg)"
+          ></div>
+          <div
+            class="slide__next-img"
+            style="background-image: url(./img/porjects/project2.jpg)"
+          ></div>
           <p class="slide__desc">
-            It's a huge step forward though, and the problem of having to keep track of your resume is much worse than the problem of having to keep track of the project's quality score.</p>
-            <button class="sldier__button"><img src="./img/icons/Vector 4.svg" alt=""></button>
-            <button class="sldier__button"><img src="./img/icons/Vector 3.svg" alt=""></button>
+            It's a huge step forward though, and the problem of having to keep
+            track of your resume is much worse than the problem of having to
+            keep track of the project's quality score.
+          </p>
+          <div class="slide__nav">
+            <div class="slider__btns">
+              <button class="sldier__button">
+                <img src="./img/icons/arLeft.svg" alt="" />
+              </button>
+              <button class="sldier__button">
+                <img src="./img/icons/arRight.svg" alt="" />
+              </button>
+            </div>
+            <div class="slide__info">
+              <img src="./img/icons/network.svg" alt="" />
+              <img src="./img/icons/gitHub.svg" alt="" />
+            </div>
           </div>
-        <!-- <div class="projects__banner">
-          <h4>projects · projects · projects</h4>
-        </div>
-        <div class="projects__item">
-          <div class="projects__img">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide project__img">
-                <div
-                  data-swiper-parallax="20%"
-                  class="project-img__bg"
-                  style="background-image: url(./img/porjects/project1.jpg)"
-                ></div>
-              </div>
-              <div class="swiper-slide project__img">
-                <div
-                  data-swiper-parallax="20%"
-                  class="project-img__bg"
-                  style="background-image: url(./img/porjects/project2.jpg)"
-                ></div>
-              </div>
-              <div class="swiper-slide project__img">
-                <div
-                  data-swiper-parallax="20%"
-                  class="project-img__bg"
-                  style="background-image: url(./img/porjects/project3.jpg)"
-                ></div>
-              </div>
-            </div>
-            <div class="projects__pagination">
-              <div class="swiper-pagination"></div>
-            </div>
-            <img src="./img/porjects/project1.jpg" alt="" /> 
-          </div>
-
-          <button class="project__btn left">
-            <svg
-              viewBox="0 0 67 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.7917 7.55484L17.805 7.54163L17.8173 7.52746C18.5361 6.69812 18.9395 5.73476 18.9395 4.64999C18.9395 2.19282 16.9835 0.549993 14.7395 0.549993C13.739 0.549993 12.8162 0.966096 12.0359 1.74644L2.63684 11.0955L2.6359 11.0964C1.81076 11.9216 1.33946 12.8932 1.33946 14C1.33946 15.0605 1.81389 16.0315 2.6359 16.8535L2.63685 16.8545L12.0241 26.1918C12.7652 27.0395 13.7472 27.5 14.8895 27.5C17.1419 27.5 18.9395 25.4491 18.9395 23.35C18.9395 22.1782 18.5442 21.1976 17.793 20.4464L17.7917 20.4451L11.2992 14L17.7917 7.55484ZM28.65 9.35C25.8076 9.34999 24.05 11.4404 24.05 13.85C24.05 16.3354 25.7848 18.55 28.65 18.55L61.95 18.55C63.3616 18.55 64.5107 18.0061 65.3024 17.1287C66.0885 16.2577 66.5 15.0839 66.5 13.85C66.5 12.6594 66.0841 11.5324 65.294 10.6996C64.4996 9.86225 63.3528 9.35 61.95 9.35L28.65 9.35Z"
-                stroke="white"
-              />
-            </svg>
-          </button>
-          <button class="project__btn right">
-            <svg
-              viewBox="0 0 68 29"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M50.1582 20.8451L50.1449 20.8583L50.1327 20.8724C49.4139 21.7018 49.0105 22.6651 49.0105 23.7499C49.0105 26.2071 50.9664 27.8499 53.2105 27.8499C54.211 27.8499 55.1337 27.4338 55.9141 26.6535L65.3131 17.3044L65.3141 17.3035C66.1392 16.4783 66.6105 15.5067 66.6105 14.3999C66.6105 13.3394 66.1361 12.3684 65.3141 11.5463L65.3131 11.5454L55.9258 2.20808C55.1847 1.36044 54.2027 0.899902 53.0605 0.899902C50.8081 0.899902 49.0105 2.95081 49.0105 5.0499C49.0105 6.22169 49.4058 7.20231 50.1569 7.95346L50.1582 7.95475L56.6508 14.3999L50.1582 20.8451ZM39.3 19.0499C42.1423 19.0499 43.9 16.9595 43.9 14.5499C43.9 12.0645 42.1652 9.8499 39.3 9.8499H5.99995C4.58833 9.8499 3.43928 10.3938 2.6475 11.2712C1.86143 12.1422 1.44995 13.316 1.44995 14.5499C1.44995 15.7405 1.86587 16.8675 2.65597 17.7003C3.45039 18.5376 4.59715 19.0499 5.99995 19.0499H39.3Z"
-                stroke="white"
-              />
-            </svg>
-          </button>
-
-          <div class="projects__info">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="project-info__wrapper">
-                  <div class="project__title">
-                    <h3 class="project__title">GROK</h3>
-                  </div>
-                  <div class="project__desc">
-                    <p class="project__desc">
-                      It's a huge step forward though, and the problem of having
-                      to keep track of your resume is much worse than the
-                      problem of having to keep track of the project's quality
-                      score.
-                    </p>
-                  </div>
-                  <div class="project__links">
-                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
-                    <a href="!#"
-                      ><img src="./img/icons/network.svg" alt=""
-                    /></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="project-info__wrapper">
-                  <div class="project__title">
-                    <h3 class="project__title">MOUNTAIN</h3>
-                  </div>
-                  <div class="project__desc">
-                    <p class="project__desc">
-                      It's a huge step forward though, and the problem of having
-                      to keep track of your resume is much worse than the
-                      problem of having to keep track of the project's quality
-                      score.
-                    </p>
-                  </div>
-                  <div class="project__links">
-                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
-                    <a href="!#"
-                      ><img src="./img/icons/network.svg" alt=""
-                    /></a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="project-info__wrapper">
-                  <div class="project__title">
-                    <h3 class="project__title">FOREST</h3>
-                  </div>
-                  <div class="project__desc">
-                    <p class="project__desc">
-                      It's a huge step forward though, and the problem of having
-                      to keep track of your resume is much worse than the
-                      problem of having to keep track of the project's quality
-                      score.
-                    </p>
-                  </div>
-                  <div class="project__links">
-                    <a href="!#"><img src="./img/icons/gitHub.svg" alt="" /></a>
-                    <a href="!#"
-                      ><img src="./img/icons/network.svg" alt=""
-                    /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </section>
     </div>
