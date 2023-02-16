@@ -160,29 +160,94 @@
           <h5>artnahabino</h5>
         </div>
 
-        <div class="slide__wrapper">
+        <div class="slider__wrapper">
+          <div class="slider__img-wrapper">
+            <div
+              class="slide__img"
+              data-status="curr-slide"
+              style="background-image: url(./img/porjects/project3.jpg)"
+            ></div>
+            <div
+              class="slide__img"
+              data-status="next-slide"
+              style="background-image: url(./img/porjects/project1.jpg)"
+            ></div>
+            <div
+              class="slide__img"
+              data-status="hidden-slide"
+              style="background-image: url(./img/porjects/project2.jpg)"
+            ></div>
+            <div
+              class="slide__img"
+              data-status="hidden-slide"
+              style="
+                background-image: url(https://www.wallpaperflare.com/static/642/294/549/cat-grass-leaves-autumn-wallpaper.jpg);
+              "
+            ></div>
+            <div
+              class="slide__img"
+              data-status="prev-slide"
+              style="
+                background-image: url(https://webmg.ru/wp-content/uploads/2022/11/i-96-13.jpeg);
+              "
+            ></div>
+          </div>
+
           <h3 class="slide__title">Grok</h3>
-          <div class="slide__img prev-slide" style="background-image: url(./img/porjects/project3.jpg)"></div>
-          <div
-            class="slide__img current-slide"
-            style="background-image: url(./img/porjects/project1.jpg)"
-          ></div>
-          <div
-            class="slide__img next-slide" 
-            style="background-image: url(./img/porjects/project2.jpg)"
-          ></div>
           <p class="slide__desc">
             It's a huge step forward though, and the problem of having to keep
             track of your resume is much worse than the problem of having to
             keep track of the project's quality score.
           </p>
-          <div class="slide__nav">
+          <div class="slider__nav">
             <div class="slider__btns">
               <button class="slider__button" id="prev-btn">
-                <img src="./img/icons/arLeft.svg" alt="" />
+                <svg
+                  width="58"
+                  height="40"
+                  viewBox="0 0 58 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M56 20L2 20L20 2"
+                    stroke="transparent"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M56 20L2 20L20 38"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </button>
               <button class="slider__button" id="next-btn">
-                <img src="./img/icons/arRight.svg" alt="" />
+                <svg
+                  width="58"
+                  height="40"
+                  viewBox="0 0 58 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 20H56L38 38"
+                    stroke="transparent"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2 20H56L38 2"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </button>
             </div>
             <div class="slide__info">

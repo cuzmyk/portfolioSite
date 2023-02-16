@@ -206,30 +206,45 @@ window.addEventListener("scroll", onScroll);
 //   animOnScroll();
 // }, 300);
 
+const slides = Array.from(document.querySelectorAll(".slide__img"));
+const prevSlideBtn = document.getElementById("prev-btn");
+const nextSlideBtn = document.getElementById("next-btn");
+console.log(slides);
 
-const slider = document.querySelector('.slide__wrapper')
-const slides = document.querySelectorAll('.slide__img');
-const nextSlideBtn = document.getElementById('prev-btn')
-const prevSlideBtn = document.getElementById('next-btn')
-console.log(nextSlideBtn);
+let activeIndex = 0;
+nextSlideBtn.onclick = () => {
+  const nextIndex = activeIndex + 1 <= slides.length - 1 ? activeIndex + 1 : 0;
 
-prevSlideBtn.onclick = ()=>{
-  const prev = slider.querySelector('.prev-slide');
-  const current = slider.querySelector('.current-slide');
-  
-  prev.classList.add('current-slide')
-  prev.classList.remove('prev-slide')
+  const currentSlide = slides[activeIndex],
+    nextSlide = slides[nextIndex],
+    commingSlide =
+      nextIndex + 1 <= slides.length - 1 ? slides[nextIndex + 1] : slides[0];
 
-  current.classList.remove('current-slide')
-  current.classList.add('next-slide')
-}
-nextSlideBtn.onclick = ()=>{
-  const next = slider.querySelector('.next-slide');
-  const current = slider.querySelector('.current-slide');
-  
-  next.classList.add('current-slide')
-  next.classList.remove('next-slide')
-
-  current.classList.remove('current-slide')
-  current.classList.add('prev-slide')
-}
+  currentSlide.dataset.status = "prev-slide";
+  nextSlide.dataset.status = "curr-slide";
+  commingSlide.dataset.status = "next-slide";
+  slides.forEach((e) => {
+    if (e !== currentSlide && e !== nextSlide && e !== commingSlide) {
+      e.dataset.status = "hidden-slide";
+    }
+  });
+  activeIndex = nextIndex;
+};
+prevSlideBtn.onclick = () => {
+  const prevIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : slides.length - 1;
+  // console.log(prevIndex);
+  const currentSlide = slides[activeIndex],
+    prevSlide = slides[prevIndex],
+    commingSlide =
+      prevIndex - 1 >= 0 ? slides[prevIndex - 1] : slides[slides.length - 1];
+  // console.log(prevSlide);
+  currentSlide.dataset.status = "next-slide";
+  prevSlide.dataset.status = "curr-slide";
+  commingSlide.dataset.status = "prev-slide";
+  slides.forEach((e) => {
+    if (e !== currentSlide && e !== prevSlide && e !== commingSlide) {
+      e.dataset.status = "hidden-slide";
+    }
+  });
+  activeIndex = prevIndex;
+};
