@@ -1,5 +1,6 @@
 .projects {
   display: flex;
+  padding-left: 3vw;
 }
 
 .projects::before {
@@ -71,27 +72,42 @@
 }
 .slide__img {
   position: absolute;
+   background-size: cover;
+   transition-property: height, width, top, left,transform,opacity;
+   transition-duration: 0.5s;
+   transition-timing-function: ease;
+}
+
+.current-slide{
   height: 60vh;
   width: 75%;
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
   z-index: -5;
-
-  background-size: cover;
+  opacity: 1;
 }
-.slide__next-img {
-  position: absolute;
+.next-slide {
   height: 20vh;
   width: 25%;
   top: 18vh;
   left: 75%;
   z-index: -6;
   opacity: 0.3;
-  background-size: cover;
+ 
+}
+.prev-slide {
+  height: 60vh;
+  width: 75%;
+  top: 70%;
+  left: -5%;
+  transform: translateY(-50%);
+  z-index: -4;
+  opacity: 0;
+ 
 }
 .slide__desc {
-  margin-bottom: 8vh;
+  margin-bottom: 12vh;
   align-self: end;
   width: 25vw;
 }

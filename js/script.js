@@ -154,54 +154,82 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 
 //ANIMATION ON SCROLL
-const animItems = document.querySelectorAll(".animated-item");
+// const animItems = document.querySelectorAll(".animated-item");
 
-if (animItems.length > 0) {
-  window.addEventListener("scroll", animOnScroll);
-  function animOnScroll() {
-    for (let index = 0; index < animItems.length; index++) {
-      const animItem = animItems[index];
-      const animItemHeight = animItem.offsetHeight;
-      const animItemOffset = offset(animItem).top;
-      const animStart = 4;
+// if (animItems.length > 0) {
+//   window.addEventListener("scroll", animOnScroll);
+//   function animOnScroll() {
+//     for (let index = 0; index < animItems.length; index++) {
+//       const animItem = animItems[index];
+//       const animItemHeight = animItem.offsetHeight;
+//       const animItemOffset = offset(animItem).top;
+//       const animStart = 4;
 
-      let animItemPoint = window.innerHeight - animItemHeight / animStart;
-      if (animItemHeight > window.innerHeight) {
-        animItemPoint = window.innerHeight - window.innerHeight / animStart;
-      }
+//       let animItemPoint = window.innerHeight - animItemHeight / animStart;
+//       if (animItemHeight > window.innerHeight) {
+//         animItemPoint = window.innerHeight - window.innerHeight / animStart;
+//       }
 
-      if (
-        window.scrollY > animItemOffset - animItemPoint &&
-        window.scrollY < animItemOffset + animItemPoint
-      ) {
-        animItem.classList.add("animated");
-      } else {
-        animItem.classList.remove("animated");
-      }
+//       if (
+//         window.scrollY > animItemOffset - animItemPoint &&
+//         window.scrollY < animItemOffset + animItemPoint
+//       ) {
+//         animItem.classList.add("animated");
+//       } else {
+//         animItem.classList.remove("animated");
+//       }
 
-      // animItemPoint = window.innerHeight - animItemHeight;
-      // if (animItemHeight > window.innerHeight) {
-      //   animItemPoint = window.innerHeight - window.innerHeight;
-      // }
+//       // animItemPoint = window.innerHeight - animItemHeight;
+//       // if (animItemHeight > window.innerHeight) {
+//       //   animItemPoint = window.innerHeight - window.innerHeight;
+//       // }
 
-      // if (
-      //   window.scrollY > animItemOffset - animItemPoint &&
-      //   window.scrollY < animItemOffset + animItemHeight / 8
-      // ) {
-      //   animItem.classList.add("active");
-      // } else {
-      //   animItem.classList.remove("active");
-      // }
-    }
-  }
-  function offset(el) {
-    const rect = el.getBoundingClientRect(),
-      scrollLeft = window.scrollX || document.documentElement.scrollLeft,
-      scrollTop = window.scrollY || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-  }
+//       // if (
+//       //   window.scrollY > animItemOffset - animItemPoint &&
+//       //   window.scrollY < animItemOffset + animItemHeight / 8
+//       // ) {
+//       //   animItem.classList.add("active");
+//       // } else {
+//       //   animItem.classList.remove("active");
+//       // }
+//     }
+//   }
+//   function offset(el) {
+//     const rect = el.getBoundingClientRect(),
+//       scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+//       scrollTop = window.scrollY || document.documentElement.scrollTop;
+//     return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+//   }
+// }
+
+// setTimeout(() => {
+//   animOnScroll();
+// }, 300);
+
+
+const slider = document.querySelector('.slide__wrapper')
+const slides = document.querySelectorAll('.slide__img');
+const nextSlideBtn = document.getElementById('prev-btn')
+const prevSlideBtn = document.getElementById('next-btn')
+console.log(nextSlideBtn);
+
+prevSlideBtn.onclick = ()=>{
+  const prev = slider.querySelector('.prev-slide');
+  const current = slider.querySelector('.current-slide');
+  
+  prev.classList.add('current-slide')
+  prev.classList.remove('prev-slide')
+
+  current.classList.remove('current-slide')
+  current.classList.add('next-slide')
 }
+nextSlideBtn.onclick = ()=>{
+  const next = slider.querySelector('.next-slide');
+  const current = slider.querySelector('.current-slide');
+  
+  next.classList.add('current-slide')
+  next.classList.remove('next-slide')
 
-setTimeout(() => {
-  animOnScroll();
-}, 300);
+  current.classList.remove('current-slide')
+  current.classList.add('prev-slide')
+}
