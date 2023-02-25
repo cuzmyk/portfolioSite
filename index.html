@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <!-- <button id="menu"></button> -->
-    <!-- <nav class="menu">
+    <div class="nav-btns">
+      <a href="#contact" id="contact-btn">contact me</a>
+      <button id="menu-btn" data-state="closed">
+        <div class="menu-btn__icon"></div>
+      </button>
+    </div>
+    <nav class="menu" data-state="closed">
       <ul class="menu__links">
         <li><a href="#more">About me</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact me</a></li>
+        <li><a href="#">Contacts</a></li>
       </ul>
-    </nav> -->
+    </nav>
     <!-- <div class="cursor">
       <div class="cursor__img"></div>
     </div> -->
@@ -73,54 +78,54 @@
       <section class="services">
         <div class="container">
           <div class="services__wrapper">
-            <div class="services__item">
-              <div class="service__icon">
-                <img src="./img/icons/devNOIZE.png" alt="" />
-              </div>
-              <div class="service__info">
+            <div class="services__items">
+              <div class="services__item" data-side="frontEnd">
                 <h3 class="service__title">front-end development</h3>
                 <p class="service__desc">
                   building your own website for further publication
                 </p>
+
+                <div class="service__tools">
+                  <img src="./img/icons/htmlIcon.svg" alt="" />
+                  <img src="./img/icons/cssIcon.svg" alt="" />
+                  <img src="./img/icons/jsIcon.svg" alt="" />
+                  <img src="./img/icons/sassIcon.svg" alt="" />
+                </div>
               </div>
-              <div class="service__tools">
-                <img src="./img/icons/htmlIcon.svg" alt="" />
-                <img src="./img/icons/cssIcon.svg" alt="" />
-                <img src="./img/icons/jsIcon.svg" alt="" />
-                <img src="./img/icons/sassIcon.svg" alt="" />
-              </div>
-            </div>
-            <div class="services__item">
-              <div class="service__icon">
-                <img src="./img/icons/designNOIZE.png" alt="" />
-              </div>
-              <div class="service__info">
+              <div class="services__item" data-side="design">
                 <h3 class="service__title">web design</h3>
                 <p class="service__desc">
                   different and creative solutions to create a unique website
                   for you
                 </p>
+
+                <div class="service__tools">
+                  <img src="./img/icons/figmaIcon.svg" alt="" />
+                  <img src="./img/icons/photoshopIcon.svg" alt="" />
+                  <img src="./img/icons/illustratorIcon.svg" alt="" />
+                </div>
               </div>
-              <div class="service__tools">
-                <img src="./img/icons/figmaIcon.svg" alt="" />
-                <img src="./img/icons/photoshopIcon.svg" alt="" />
-                <img src="./img/icons/illustratorIcon.svg" alt="" />
-              </div>
-            </div>
-            <div class="services__item">
-              <div class="service__icon">
-                <img src="./img/icons/animationsNOIZE.png" alt="" />
-              </div>
-              <div class="service__info">
+              <div class="services__item" data-side="animation">
                 <h3 class="service__title">animations</h3>
                 <p class="service__desc">
                   interactive and pretty animations to make your website look
                   amazing
                 </p>
+
+                <div class="service__tools">
+                  <img src="./img/icons/jsIcon.svg" alt="" />
+                  <img src="./img/icons/aeIcon.svg" alt="" />
+                </div>
               </div>
-              <div class="service__tools">
-                <img src="./img/icons/jsIcon.svg" alt="" />
-                <img src="./img/icons/aeIcon.svg" alt="" />
+            </div>
+            <div class="wrap">
+              <div class="cube">
+                <div class="top side"></div>
+                <div class="bottom side"></div>
+                <div class="front side"></div>
+                <div class="back side"></div>
+                <div class="left side"></div>
+                <div class="right side"></div>
               </div>
             </div>
           </div>
@@ -136,8 +141,8 @@
             <text
               y="40"
               font-size="50"
-              font-family="Dreadnoughtus"
-              fill="#222"
+              font-family="IntegralCF"
+              fill="#8ecae6"
               letter-spacing="20"
             >
               <textPath
@@ -154,23 +159,17 @@
       </section>
 
       <section class="projects">
-        <div class="projects__list">
-          <h5>grok</h5>
-          <h5>typing test</h5>
-          <h5>artnahabino</h5>
-        </div>
-
         <div class="slider__wrapper">
           <div class="slider__img-wrapper">
             <div
               class="slide__img"
               data-status="curr-slide"
-              style="background-image: url(./img/porjects/project3.jpg)"
+              style="background-image: url(./img/porjects/project1.jpg)"
             ></div>
             <div
               class="slide__img"
               data-status="next-slide"
-              style="background-image: url(./img/porjects/project1.jpg)"
+              style="background-image: url(./img/porjects/project3.jpg)"
             ></div>
             <div
               class="slide__img"
@@ -192,14 +191,70 @@
               "
             ></div>
           </div>
+          <div class="container">
+            <div class="slider__info-wrapper">
+              <div class="slide__info" data-status="curr-slide">
+                <h3 class="slide__title">Grok</h3>
+                <p class="slide__desc">
+                  It's a huge step forward though, and the problem of having to
+                  keep track of your resume is much worse than the problem of
+                  having to keep track of the project's quality score.
+                </p>
 
-          <h3 class="slide__title">Grok</h3>
-          <p class="slide__desc">
-            It's a huge step forward though, and the problem of having to keep
-            track of your resume is much worse than the problem of having to
-            keep track of the project's quality score.
-          </p>
-          <div class="slider__nav">
+                <div class="slide__links">
+                  <img src="./img/icons/network.svg" alt="" />
+                  <img src="./img/icons/gitHub.svg" alt="" />
+                </div>
+              </div>
+              <div class="slide__info" data-status="next-slide">
+                <h3 class="slide__title">Forest</h3>
+                <p class="slide__desc">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Numquam, pariatur molestiae! Iure repellendu
+                </p>
+
+                <div class="slide__links">
+                  <img src="./img/icons/network.svg" alt="" />
+                  <img src="./img/icons/gitHub.svg" alt="" />
+                </div>
+              </div>
+              <div class="slide__info" data-status="hidden-slide">
+                <h3 class="slide__title">mountrain</h3>
+                <p class="slide__desc">
+                  ma consequuntur nostrum iste corporis pariatur alias placeat
+                  assumenda asperiores delectus debitis.
+                </p>
+
+                <div class="slide__links">
+                  <img src="./img/icons/network.svg" alt="" />
+                  <img src="./img/icons/gitHub.svg" alt="" />
+                </div>
+              </div>
+              <div class="slide__info" data-status="hidden-slide">
+                <h3 class="slide__title">cat</h3>
+                <p class="slide__desc">
+                  ma consequuntur nostrum iste corporis pariatur alias placeat
+                  assumenda asperiores delectus debitis.
+                </p>
+
+                <div class="slide__links">
+                  <img src="./img/icons/network.svg" alt="" />
+                  <img src="./img/icons/gitHub.svg" alt="" />
+                </div>
+              </div>
+              <div class="slide__info" data-status="prev-slide">
+                <h3 class="slide__title">sea</h3>
+                <p class="slide__desc">
+                  ma consequuntur nostrum iste corporis pariatur alias placeat
+                  assumenda asperiores delectus debitis.
+                </p>
+
+                <div class="slide__links">
+                  <img src="./img/icons/network.svg" alt="" />
+                  <img src="./img/icons/gitHub.svg" alt="" />
+                </div>
+              </div>
+            </div>
             <div class="slider__btns">
               <button class="slider__button" id="prev-btn">
                 <svg
@@ -250,33 +305,35 @@
                 </svg>
               </button>
             </div>
-            <div class="slide__info">
-              <img src="./img/icons/network.svg" alt="" />
-              <img src="./img/icons/gitHub.svg" alt="" />
-            </div>
           </div>
         </div>
       </section>
     </div>
-    <section class="feedback">
+
+    <section class="feedback" id="contact">
       <div class="container">
         <div class="feedback__wrapper">
           <div class="feedback__form">
-            <label for="name" class="form__name">Your name</label>
-            <input type="text" name="name" class="form__input" />
-            <label for="email" class="form__name">Your email</label>
-            <input type="tetx" name="email" class="form__input" />
-            <label for="message" class="form__name">Your message</label>
-            <input type="text" name="message" class="form__input" />
-            <button class="form__send">send</button>
+            <div class="form__group">
+              <input class="form__input" placeholder=" " />
+              <label class="form__label">name</label>
+            </div>
+            <div class="form__group">
+              <input class="form__input" placeholder=" " />
+              <label class="form__label">e-mail</label>
+            </div>
+            <div class="form__group">
+              <input class="form__input lenght" placeholder=" " />
+              <label class="form__label">message</label>
+            </div>
+            <a href="#" class="form__btn">send</a>
           </div>
           <div class="feedback__contacts">
-            <h5 class="contacts__title">number</h5>
-            <p class="contacts__info">+7 (912) 415 - 13 - 28</p>
-            <h5 class="contacts__title">email</h5>
-            <p class="contacts__info">cuzmykey@yandex.ru</p>
-            <h5 class="contacts__title">follow me on</h5>
-            <p class="contacts__info">some links</p>
+            <h5 class="contacts__title">e-mail</h5>
+            <p class="contacts__link">cuzmykey@yandex.ru</p>
+
+            <h5 class="contacts__title">links</h5>
+            <p class="contacts__link">https://t.me/cuzmyk</p>
           </div>
         </div>
       </div>
@@ -284,8 +341,7 @@
 
     <script src="./libs/gsap-public/minified/gsap.min.js"></script>
     <script src="./libs/gsap-public/minified/ScrollTrigger.min.js"></script>
-    <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
-    <script src="./js/swiper.js"></script>
+
     <script src="./js/script.js"></script>
   </body>
 </html>

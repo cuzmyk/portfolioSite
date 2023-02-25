@@ -1,29 +1,28 @@
 @font-face {
-  font-family: "Dreadnoughtus";
-  src: url(./../../fonts/DreadnoughtusMedium.woff);
-}
-@font-face {
-  font-family: "BwDarius";
-  src: url(./../../fonts/BwDarius-Bold.ttf);
+  font-family: "IntegralCF";
+  src: url(./../../fonts/IntegralCF-Heavy.ttf);
 }
 
 @font-face {
-  font-family: "OpenSans";
-  font-weight: 400;
-  src: url(./../../fonts/OpenSans-Regular.ttf);
+  font-family: "Sofia";
+  font-weight: 300;
+  src: url(./../../fonts//SofiaProLight.otf);
 }
 
 @font-face {
-  font-family: "OpenSans";
+  font-family: "Sofia";
   font-weight: 600;
-  src: url(./../../fonts/OpenSans-SemiBold.ttf);
+  src: url(./../../fonts/SofiaProSemiBold.otf);
 }
 
-$primary-color: #171717;
-$secondary-color: #222;
-$accent-color: #3935fe;
+// $primary-color: #171717;
+$primary-color: #023047;
+$secondary-color: #8ecae6;
+$darker-secondary-color: #219ebc;
+$accent-color: #fb8500;
+
 $text-color: #fff;
-$transition: cubic-bezier(0, 0.52, 0.43, 0.99);
+$transition: cubic-bezier(0, 0.5, 0.5, 1);
 $index: calc(1vw+1vh);
 
 .none {
@@ -31,38 +30,39 @@ $index: calc(1vw+1vh);
 }
 
 %regular-text {
-  font-family: "OpenSans", sans-serif;
+  font-family: "Sofia", sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 20px;
   // font-size: calc(#{$index} * 1.01);
-  line-height: 27px;
+  line-height: 1.4;
   color: $text-color;
 }
 
 %subtitle-text {
-  font-family: "OpenSans", sans-serif;
+  font-family: "Sofia", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
-  // font-size: calc((1vw + 1vh));
-  line-height: 41px;
+  // font-size: calc(#{$index} * 1.5);
+  line-height: 1.4;
   color: $text-color;
   text-transform: uppercase;
 }
 
 %title-text {
-  // font-family: "BwDarius", sans-serif;
-  font-family: "Dreadnoughtus", sans-serif;
+  font-family: "IntegralCF", sans-serif;
   font-style: normal;
   font-weight: 500;
+  // font-size: calc(#{$index} * 2.6);
   font-size: 50px;
-  line-height: 57px;
+  line-height: 1.1;
 }
 
 body {
   @extend %regular-text;
   background-color: $primary-color;
+  overflow-x: hidden;
 }
 
 .scroll-wrapper {

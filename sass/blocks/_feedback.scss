@@ -1,74 +1,88 @@
 .feedback {
+  padding-top: 50vh;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding: 100px 0;
 }
 
 .feedback__wrapper {
+  width: 100%;
   display: grid;
-  grid-template: 1fr / 1fr 1fr;
-  grid-gap: 40px;
+  grid-template-columns: 50% 50%;
+  grid-gap: 5vw;
 }
+
 .feedback__form {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.form__input {
-  padding: 10px 2px;
-  border-bottom: 1px solid #fff;
-  margin-bottom: 30px;
-  @extend %regular-text;
-}
-.form__input:nth-child(4) {
-  border-bottom: 1px solid #fff;
-  margin-bottom: 60px;
-}
-.form__name {
-  @extend %regular-text;
-}
-.feedback__contacts {
-  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: end;
 }
 
-.feedback__contacts::after {
+.form__group {
+  width: 100%;
+  position: relative;
+  margin-bottom: 5vh;
+}
+
+.form__label {
   position: absolute;
-  content: "contact me";
-  right: -40%;
-  top: 50%;
-  transform: rotate(-90deg) translateX(10%);
-  color: $secondary-color;
-  @extend %title-text;
+  top: 0;
+  left: 0;
   z-index: -1;
+  transition: 0.3s;
 }
 
-.contacts__title {
-}
-.contacts__info {
-  margin-bottom: 40px;
-  @extend %subtitle-text;
+.form__input {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 0 1vh 0;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  outline: none;
+  transition: border 0.3s ease;
 }
 
-.form__send {
-  padding: 14px 0;
+.form__input:focus {
+  border-bottom: 1px solid $accent-color;
+}
 
-  background-color: $primary-color;
-  box-shadow: -1px -1px 2px rgba(32, 32, 32, 0.25),
-    1px 1px 2px rgba(0, 0, 0, 0.25), -5px -5px 7px rgba(32, 32, 32, 0.25),
-    5px 5px 7px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  z-index: 5;
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown) ~ .form__label {
+  top: -2vh;
+  font-size: 0.7em;
+  color: $secondary-color;
+}
+
+.form__btn {
   @extend %regular-text;
-  transition: background-color 0.2s $transition, box-shadow 0.2s $transition;
+  display: inline-block;
+  padding: 2vh 0;
+  border: 1px solid $text-color;
+  border-radius: 8rem;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  text-align: center;
+  &:hover {
+    background-color: $accent-color;
+    border: 1px solid $accent-color;
+  }
 }
 
-.form__send:hover {
-  background: $secondary-color;
+.feedback__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: right;
+}
+.contacts__title {
+  @extend %regular-text;
+  margin-bottom: 1vh;
+}
+.contacts__link {
+  @extend %subtitle-text;
+  text-transform: none;
+  margin-bottom: 10vh;
 }
 
 @media (max-width: 600px) {

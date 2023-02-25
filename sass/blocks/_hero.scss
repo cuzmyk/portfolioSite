@@ -23,7 +23,7 @@
     border-radius;
   transition-duration: 0.75s;
   transition-timing-function: ease-in-out;
-  background-color: $accent-color;
+  background-color: $secondary-color;
 }
 
 .shape:nth-child(1) {
@@ -208,7 +208,7 @@
 }
 
 #wrapper[data-roundness="3"]#wrapper[data-configuration="2"] > .shape {
-  background-color: white;
+  background-color: $text-color;
   opacity: 1;
 }
 /* configuration 3 */

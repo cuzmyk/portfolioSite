@@ -1,3 +1,13 @@
+//MENU BTN
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.querySelector(".menu");
+
+menuBtn.onclick = () => {
+  menuBtn.dataset.state === "closed"
+    ? ((menuBtn.dataset.state = "opened"), (menu.dataset.state = "opened"))
+    : ((menuBtn.dataset.state = "closed"), (menu.dataset.state = "closed"));
+};
+
 //HORIZONTAL SCROLL
 const container = document.querySelector(".scroll-wrapper");
 const sections = gsap.utils.toArray(".scroll-wrapper section");
@@ -19,9 +29,7 @@ let scrollTween = gsap.to(sections, {
 });
 
 //HERO LOGO ANIMATION
-
 const wrapper = document.querySelector("#wrapper");
-
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const uniqueRand = (min, max, prev) => {
@@ -69,40 +77,10 @@ for (let anchor of anchors) {
   });
 }
 
-//MOVING WAVES ANIMATION
+//CARD ANIMATION
 const headerSection = document.querySelector(".hero__greeting");
-
 const aboutSection = document.querySelector("#more");
 if (window.screen.width >= 600) {
-  //CURSOR
-  // window.addEventListener("mousemove", (e) => {
-  //   document.body.style = `--move-x: ${e.clientX}px; --move-y: ${e.clientY}px`;
-  // });
-
-  // const cursor = document.querySelector(".cursor");
-  // const cursorImg = document.querySelector(".cursor__img");
-
-  // window.addEventListener("mousemove", (e) => {
-  //   if (
-  //     e.target.parentElement.dataset.cursor ||
-  //     e.target.dataset.cursor
-  //   ) {
-
-  //     cursor.classList.add("visible");
-  //     cursorImg.className = `${
-  //       e.target.dataset.cursor
-  //         ? e.target.dataset.cursor
-  //         : e.target.parentElement.dataset.cursor
-  //     }`;
-  //   } else {
-  //     cursor.classList.remove("visible");
-  //   }
-  // });
-
-  //MOVING VISIT CARD ANIMTAION
-
-  // ax = aboutSection.offsetWidth / 2;
-  // ay = aboutSection.offsetHeight / 2;
   ax = window.innerWidth / 2;
   ay = window.innerHeight / 2;
 
@@ -120,7 +98,7 @@ if (window.screen.width >= 600) {
       radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
       degree = radius * 12;
       gsap.to(".card", 1, {
-        transform: `rotate3d(${-tiltx},${tilty},0,${degree}deg)`,
+        transform: `rotate3d(${-tiltx + 0.9},${tilty},0,${degree}deg)`,
       });
     }
   });
@@ -137,6 +115,18 @@ circleText.forEach((e) => {
     .join("");
 });
 
+//CUBE ANIMATION
+const serviceItems = document.querySelectorAll(".services__item");
+const cube = document.querySelector(".cube");
+
+serviceItems.forEach((e) => {
+  e.addEventListener("mouseover", () => {
+    cube.dataset.side = e.dataset.side;
+  });
+  e.addEventListener("mouseout", () => {
+    cube.removeAttribute("data-side");
+  });
+});
 //PATH TEXT ANIMATION
 const textPath = document.querySelector("#text-path");
 function updateTextPathOffset(offset) {
@@ -153,96 +143,64 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll);
 
-//ANIMATION ON SCROLL
-// const animItems = document.querySelectorAll(".animated-item");
-
-// if (animItems.length > 0) {
-//   window.addEventListener("scroll", animOnScroll);
-//   function animOnScroll() {
-//     for (let index = 0; index < animItems.length; index++) {
-//       const animItem = animItems[index];
-//       const animItemHeight = animItem.offsetHeight;
-//       const animItemOffset = offset(animItem).top;
-//       const animStart = 4;
-
-//       let animItemPoint = window.innerHeight - animItemHeight / animStart;
-//       if (animItemHeight > window.innerHeight) {
-//         animItemPoint = window.innerHeight - window.innerHeight / animStart;
-//       }
-
-//       if (
-//         window.scrollY > animItemOffset - animItemPoint &&
-//         window.scrollY < animItemOffset + animItemPoint
-//       ) {
-//         animItem.classList.add("animated");
-//       } else {
-//         animItem.classList.remove("animated");
-//       }
-
-//       // animItemPoint = window.innerHeight - animItemHeight;
-//       // if (animItemHeight > window.innerHeight) {
-//       //   animItemPoint = window.innerHeight - window.innerHeight;
-//       // }
-
-//       // if (
-//       //   window.scrollY > animItemOffset - animItemPoint &&
-//       //   window.scrollY < animItemOffset + animItemHeight / 8
-//       // ) {
-//       //   animItem.classList.add("active");
-//       // } else {
-//       //   animItem.classList.remove("active");
-//       // }
-//     }
-//   }
-//   function offset(el) {
-//     const rect = el.getBoundingClientRect(),
-//       scrollLeft = window.scrollX || document.documentElement.scrollLeft,
-//       scrollTop = window.scrollY || document.documentElement.scrollTop;
-//     return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-//   }
-// }
-
-// setTimeout(() => {
-//   animOnScroll();
-// }, 300);
+//SLIDER
 
 const slides = Array.from(document.querySelectorAll(".slide__img"));
+const slidesInfo = Array.from(document.querySelectorAll(".slide__info"));
+const slidesList = Array.from(document.querySelectorAll(".projects__list h5"));
+const sliderInfoWrapper = document.querySelector(".slider__info-wrapper");
 const prevSlideBtn = document.getElementById("prev-btn");
 const nextSlideBtn = document.getElementById("next-btn");
-console.log(slides);
 
 let activeIndex = 0;
 nextSlideBtn.onclick = () => {
   const nextIndex = activeIndex + 1 <= slides.length - 1 ? activeIndex + 1 : 0;
+  const currentSlide = activeIndex,
+    nextSlide = nextIndex,
+    commingSlide = nextIndex + 1 <= slides.length - 1 ? nextIndex + 1 : 0;
 
-  const currentSlide = slides[activeIndex],
-    nextSlide = slides[nextIndex],
-    commingSlide =
-      nextIndex + 1 <= slides.length - 1 ? slides[nextIndex + 1] : slides[0];
-
-  currentSlide.dataset.status = "prev-slide";
-  nextSlide.dataset.status = "curr-slide";
-  commingSlide.dataset.status = "next-slide";
+  slides[currentSlide].dataset.status = "prev-slide";
+  slides[nextSlide].dataset.status = "curr-slide";
+  slides[commingSlide].dataset.status = "next-slide";
+  // sliderInfoWrapper.style.transform = `translateX(${nextIndex * -100}vh)`;
+  slidesInfo[currentSlide].dataset.status = "prev-slide";
+  slidesInfo[nextSlide].dataset.status = "curr-slide";
+  slidesInfo[commingSlide].dataset.status = "next-slide";
+  // slidesList[currentSlide].removeAttribute("data-status");
+  // slidesList[nextSlide].dataset.status = "curr-slide";
   slides.forEach((e) => {
-    if (e !== currentSlide && e !== nextSlide && e !== commingSlide) {
+    if (
+      e !== slides[currentSlide] &&
+      e !== slides[nextSlide] &&
+      e !== slides[commingSlide]
+    ) {
       e.dataset.status = "hidden-slide";
     }
   });
   activeIndex = nextIndex;
 };
+
 prevSlideBtn.onclick = () => {
   const prevIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : slides.length - 1;
   // console.log(prevIndex);
-  const currentSlide = slides[activeIndex],
-    prevSlide = slides[prevIndex],
-    commingSlide =
-      prevIndex - 1 >= 0 ? slides[prevIndex - 1] : slides[slides.length - 1];
+  const currentSlide = activeIndex,
+    prevSlide = prevIndex,
+    commingSlide = prevIndex - 1 >= 0 ? prevIndex - 1 : slides.length - 1;
   // console.log(prevSlide);
-  currentSlide.dataset.status = "next-slide";
-  prevSlide.dataset.status = "curr-slide";
-  commingSlide.dataset.status = "prev-slide";
+  slides[currentSlide].dataset.status = "next-slide";
+  slides[prevSlide].dataset.status = "curr-slide";
+  slides[commingSlide].dataset.status = "prev-slide";
+  slidesInfo[currentSlide].dataset.status = "next-slide";
+  slidesInfo[prevSlide].dataset.status = "curr-slide";
+  slidesInfo[commingSlide].dataset.status = "prev-slide";
+  // slidesList[currentSlide].removeAttribute("data-status");
+  // slidesList[prevSlide].dataset.status = "curr-slide";
   slides.forEach((e) => {
-    if (e !== currentSlide && e !== prevSlide && e !== commingSlide) {
+    if (
+      e !== slides[currentSlide] &&
+      e !== slides[prevSlide] &&
+      e !== slides[commingSlide]
+    ) {
       e.dataset.status = "hidden-slide";
     }
   });

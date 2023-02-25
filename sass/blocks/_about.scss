@@ -10,8 +10,8 @@
 
 .card {
   position: relative;
-  width: 1000px;
-  height: 500px;
+  width: 50vw;
+  height: 50vh;
   transform-style: preserve-3d;
 }
 
@@ -54,7 +54,8 @@
 .card-l {
   position: absolute;
   inset: 0;
-  background-color: $accent-color;
+  background-color: $darker-secondary-color;
+  // background-color: $accent-color;
   border-radius: 16px;
 
   &:nth-child(4) {
@@ -94,23 +95,14 @@
     animation: rotation 30s infinite forwards linear;
   }
 }
-// .circle::after {
-//   content: "";
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 60%;
-//   height: 60%;
-//   border-top: 3px solid $secondary-color;
-//   border-radius: 50%;
-// }
+
 .circle__text span {
   position: absolute;
   left: 50%;
   @extend %title-text;
   color: $secondary-color;
   transform-origin: 0 250px;
+  opacity: 0.1;
 }
 
 @keyframes rotation {
